@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/filmyduniya/static/css/main.14d5d7ac.css",
-    "main.js": "/filmyduniya/static/js/main.ece1b5d4.js",
+    "main.css": "/filmyduniya/static/css/main.c006ebad.css",
+    "main.js": "/filmyduniya/static/js/main.f35f9fb3.js",
     "index.html": "/filmyduniya/index.html",
-    "main.14d5d7ac.css.map": "/filmyduniya/static/css/main.14d5d7ac.css.map",
-    "main.ece1b5d4.js.map": "/filmyduniya/static/js/main.ece1b5d4.js.map"
+    "main.c006ebad.css.map": "/filmyduniya/static/css/main.c006ebad.css.map",
+    "main.f35f9fb3.js.map": "/filmyduniya/static/js/main.f35f9fb3.js.map"
   },
   "entrypoints": [
-    "static/css/main.14d5d7ac.css",
-    "static/js/main.ece1b5d4.js"
+    "static/css/main.c006ebad.css",
+    "static/js/main.f35f9fb3.js"
   ]
 }
