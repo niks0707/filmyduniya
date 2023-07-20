@@ -1,10 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { TailSpin } from "react-loader-spinner";
 import { addDoc } from "firebase/firestore";
 import { moviesRef } from "../firebase/firebase";
 import swal from 'sweetalert';
+import { Appstate } from "../App";
+import { useNavigate } from "react-router-dom";
 
 const AddMovie = () => {
+    const useAppState = useContext(Appstate);
+    const navigate = useNavigate();
     const [form, setForm] = useState({
         title: "",
         year: "",
@@ -23,19 +27,25 @@ const AddMovie = () => {
         }
 
         setLoading(true);
-        await addDoc(moviesRef, form);
-        swal({
-            title: "Successfully Added",
-            icon: "success",
-            button: false,
-            timer: 2000
-        });
-        setForm({
-            title: "",
-            year: "",
-            image: "",
-            description: ""
-        });
+        if (useAppState.login && (useAppState.username==="Admin")) {
+            await addDoc(moviesRef, form);
+            swal({
+                title: "Successfully Added",
+                icon: "success",
+                button: false,
+                timer: 2000
+            });
+            setForm({
+                title: "",
+                year: "",
+                image: "",
+                description: ""
+            });
+            navigate('/filmyduniya')
+        }else{
+            navigate('/login')
+            window.alert("Plz Login as Admin First")
+        }
         setLoading(false);
         setErrors({});
     };
@@ -159,6 +169,11 @@ const AddMovie = () => {
                                                 description: e.target.value
                                             })
                                         }
+                                        onKeyDown={(e) => {
+                                            if (e.key === 'Enter') {
+                                                addMovie();
+                                            }
+                                        }}
                                         required
                                         className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500  focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
                                     ></textarea>
