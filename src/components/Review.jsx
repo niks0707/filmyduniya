@@ -52,7 +52,7 @@ const Review = ({ id, preRating, userRated }) => {
                     timer: 1000
                 });
             }else{
-                windows.alert("Plz Login to add your review...")
+                window.alert("Plz Login to add your review...")
                 navigate('/login')
             }
         } catch (error) {
