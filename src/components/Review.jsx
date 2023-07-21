@@ -82,7 +82,7 @@ const Review = ({ id, preRating, userRated }) => {
     }, [newAdded]);
 
     return (
-        <div className='w-full mt-4 border-t-2 border-gray-700'>
+        <div className='w-full mt-1 border-t-2 border-gray-700'>
             <div className='flex items-center'>
                 <p className='text-green-500 mt-3 text-xl'>Rate us :</p>
                 <div className='pt-3 ml-3'>

@@ -128,7 +128,7 @@ const Signup = () => {
                 </>
                 :
                 <>
-                    <div className="p-2 w-1/3">
+                    <div className="p-2 md:w-1/3 w-1/2">
                         <div className="relative">
                             <label htmlFor="name" className="leading-7 text-sm text-white">
                                 Name
@@ -146,7 +146,7 @@ const Signup = () => {
                             />
                         </div>
                     </div>
-                    <div className="p-2 w-1/3">
+                    <div className="p-2 md:w-1/3 w-1/2">
                         <div className="relative">
                             <label htmlFor="mobile" className="leading-7 text-sm text-white">
                                 Mobile Number
@@ -164,7 +164,7 @@ const Signup = () => {
                             />
                         </div>
                     </div>
-                    <div className="p-2 w-1/3">
+                    <div className="p-2 md:w-1/3 w-1/2">
                         <div className="relative">
                             <label htmlFor="password" className="leading-7 text-sm text-white">
                                 Password

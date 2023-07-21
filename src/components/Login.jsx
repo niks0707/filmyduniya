@@ -92,7 +92,7 @@ const Login = () => {
         <div className="w-full flex flex-col mt-8 items-center">
 
             <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-white">Login</h1>
-            <div className="p-2 w-1/3">
+            <div className="p-2 md:w-1/3 w-1/2">
                 <div className="relative">
                     <label htmlFor="mobile" className="leading-7 text-sm text-white">
                         Mobile Number
@@ -113,7 +113,7 @@ const Login = () => {
                     )}
                 </div>
             </div>
-            <div className="p-2 w-1/3">
+            <div className="p-2 md:w-1/3 w-1/2">
                 <div className="relative">
                     <label htmlFor="password" className="leading-7 text-sm text-white">
                         Password

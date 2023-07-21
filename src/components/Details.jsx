@@ -5,8 +5,11 @@ import { db } from '../firebase/firebase';
 import { getDoc, doc } from 'firebase/firestore';
 import { ThreeDots } from 'react-loader-spinner';
 import Review from './Review';
+import VideoPopup from './VideoPopup';
 
 const Details = () => {
+  const [show, setShow] = useState(false)
+
   const { id } = useParams();
   const [data, setData] = useState({
     title: '',
@@ -15,6 +18,7 @@ const Details = () => {
     description: '',
     rating: 0,
     rated: 0,
+    trailerurl:''
   });
 
   const [loading, setLoading] = useState(false);
@@ -45,11 +49,25 @@ const Details = () => {
           />
 
           <div className='md:ml-4 ml-0 md:w-1/2 p-2 mt-4'>
-            <h1 className='text-3xl font-bold text-gray-400 '>
-              Title: {data.title} <span className='text-xl'>({data.year})</span>
-            </h1>
-            <ReactStars size={25} half={true} value={data.rating / data.rated} edit={true} />
-            <p className='mt-2'>{data.description}</p>
+            <div>
+              <h1 className='text-3xl font-bold text-gray-400 '>
+                Title: {data.title} <span className='text-xl'>({data.year})</span>
+              </h1>
+              <ReactStars size={25} half={true} value={data.rating / data.rated} edit={false} />
+              <p className='mt-2'>{data.description}</p>
+            </div>
+            <div className='bg-red-600 p-2 mt-5 mb-5 uppercase rounded-xl text-white w-48 flex justify-center items-center text-xl'>
+              <button onClick={() => {setShow(true)}}>
+                Watch Trailer
+              </button>
+            </div>
+            <div>
+              <VideoPopup
+                show={show}
+                setShow={setShow}
+                trailerurl={data.trailerurl}
+              />
+            </div>
             <Review id={id} preRating={data.rating} userRated={data.rated} />
           </div>
         </>

@@ -15,7 +15,8 @@ const AddMovie = () => {
         image: "",
         description: "",
         rated: 0,
-        rating: 0
+        rating: 0,
+        trailerurl:""
     });
 
     const [loading, setLoading] = useState(false);
@@ -27,7 +28,7 @@ const AddMovie = () => {
         }
 
         setLoading(true);
-        if (useAppState.login && (useAppState.username==="Admin")) {
+        if (useAppState.login && (useAppState.username === "Admin")) {
             await addDoc(moviesRef, form);
             swal({
                 title: "Successfully Added",
@@ -39,10 +40,13 @@ const AddMovie = () => {
                 title: "",
                 year: "",
                 image: "",
-                description: ""
+                description: "",
+                rated: 0,
+                rating: 0,
+                trailerurl:""
             });
             navigate('/filmyduniya')
-        }else{
+        } else {
             navigate('/login')
             window.alert("Plz Login as Admin First")
         }
@@ -66,6 +70,11 @@ const AddMovie = () => {
 
         if (!form.image.trim()) {
             newErrors.image = "Image Link is required";
+            isValid = false;
+        }
+
+        if (!form.trailerurl.trim()) {
+            newErrors.trailerurl = "Trailer Link is required";
             isValid = false;
         }
 
@@ -133,7 +142,7 @@ const AddMovie = () => {
                             </div>
                             <div className="p-2 w-full">
                                 <div className="relative">
-                                    <label htmlFor="message" className="leading-7 text-sm text-white">
+                                    <label htmlFor="imagelink" className="leading-7 text-sm text-white">
                                         Image Link
                                     </label>
                                     <input
@@ -151,6 +160,29 @@ const AddMovie = () => {
                                     />
                                     {errors.image && (
                                         <span className="text-red-500 text-sm">{errors.image}</span>
+                                    )}
+                                </div>
+                            </div>
+                            <div className="p-2 w-full">
+                                <div className="relative">
+                                    <label htmlFor="trailerlink" className="leading-7 text-sm text-white">
+                                        Trailer Link
+                                    </label>
+                                    <input
+                                        id="trailerlink"
+                                        name="trailerlink"
+                                        value={form.trailerurl}
+                                        onChange={(e) =>
+                                            setForm({
+                                                ...form,
+                                                trailerurl: e.target.value
+                                            })
+                                        }
+                                        required
+                                        className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                                    />
+                                    {errors.trailerurl && (
+                                        <span className="text-red-500 text-sm">{errors.trailerurl}</span>
                                     )}
                                 </div>
                             </div>
