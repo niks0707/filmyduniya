@@ -56,8 +56,8 @@ const Details = () => {
               <ReactStars size={25} half={true} value={data.rating / data.rated} edit={false} />
               <p className='mt-2'>{data.description}</p>
             </div>
-            <div className='bg-red-600 p-2 mt-5 mb-5 uppercase rounded-xl text-white w-48 flex justify-center items-center text-xl'>
-              <button onClick={() => {setShow(true)}}>
+            <div onClick={() => {setShow(true)}} className='bg-red-600 p-2 mt-5 mb-5 uppercase rounded-xl text-white w-48 flex justify-center items-center text-xl'>
+              <button>
                 Watch Trailer
               </button>
             </div>

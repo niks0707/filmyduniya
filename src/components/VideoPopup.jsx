@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import ReactPlayer from "react-player/youtube";
 import "./style.css";
 
-const VideoPopup = ({ show, setShow, trailerurl}) => {
-    const [play,setPlay] = useState(true);
+const VideoPopup = ({ show, setShow, trailerurl }) => {
+    const [play, setPlay] = useState(true);
 
     const hidePopup = () => {
         setShow(false);
@@ -21,7 +21,7 @@ const VideoPopup = ({ show, setShow, trailerurl}) => {
                     controls
                     width="100%"
                     height="100%"
-                    playing={play}
+                    playing={play && show}
                 />
             </div>
         </div>
